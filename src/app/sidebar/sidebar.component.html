@@ -1,14 +1,32 @@
 <nav class="sidenav-section">
   <div class="sidebar-top">
     <div class="profile-bg">
-      <div class="mobile-nav">
+      <!-- <div class="mobile-nav">
         <div class="menu-btn icon" id="menu-btn">
           <i class="fa-sharp fa-solid fa-bars"></i>
+        </div>
+      </div> -->
+      <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu" [(ngModel)]="hambergerMenu"
+      [ngModelOptions]="{standalone: true}">
+      <label for="openSidebarMenu" class="sidebarIconToggle">
+          <div class="spinner diagonal part-1"></div>
+          <div class="spinner horizontal"></div>
+          <div class="spinner diagonal part-2"></div>
+      </label>  
+      <div id="sidebarMenu" class="sidebarMenu">
+        <div class="main-content-wrapper">
+          <ng-container *ngFor="let menu of menu_list; let i = index">
+          <a routerLink="/{{ menu.url }}" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="hambergerMenu = !hambergerMenu; goTo(menu)">
+            <div class="icon inline-block"><i class="{{ menu.icon }}"></i></div>
+            <span class="link hide">{{ menu.menu_name }}</span>
+          </a>
+          </ng-container>
         </div>
       </div>
       <div class="profile-avathar-details">
         <img src="assets/images/logo.png" class="logo" alt="Logo"/>
-        <div class="logged-avathar-name">Santa Inc
+        <div class="logged-avathar-name">
+          <h4 class="santa-title">Santa Inc</h4>
           <p class="version">V4.1.2</p>
         </div>
       </div>

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class SidebarComponent implements OnInit {
 
   menu_list: any = [];
+  hambergerMenu:boolean = false;
 
   constructor(
     private router: Router
