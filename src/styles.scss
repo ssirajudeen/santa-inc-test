@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import "@fortawesome/fontawesome-free/scss/brands";
+@import "@fortawesome/fontawesome-free/scss/regular";
+@import "@fortawesome/fontawesome-free/scss/solid";
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a,
+button {
+  text-decoration: none;
+  outline: none !important;
+}
+
+ul,
+ol {
+  padding-left: 0;
+}
+
+:root {
+  // Colors
+  --primary-color: #0d6032;
+  --secondary-color: red;
+  --white-color: #fff;
+
+  // Heights
+  --topbarHeaderHeight: 200px;
+  --footerHeight: 25px;
+}
+
+main {
+  margin-left: 240px;
+  transition: margin-left 0.5s ease-in-out;
+}
+
+.page-content-and-scroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: calc(100vh - (var(--topbarHeaderHeight) + var(--footerHeight)));
+}
+
+@media (max-width: 767px) { 
+  main {
+    margin: 0px;
+  }
+  .page-content-and-scroll {
+    height: calc(100vh - (10 + var(--footerHeight)));
+    margin-top: 60px;
+  }
+}

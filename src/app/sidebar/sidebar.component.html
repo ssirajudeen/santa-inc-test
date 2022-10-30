@@ -1,0 +1,28 @@
+<nav class="sidenav-section">
+  <div class="sidebar-top">
+    <div class="profile-bg">
+      <div class="mobile-nav">
+        <div class="menu-btn icon" id="menu-btn">
+          <i class="fa-sharp fa-solid fa-bars"></i>
+        </div>
+      </div>
+      <div class="profile-avathar-details">
+        <img src="assets/images/logo.png" class="logo" alt="Logo"/>
+        <div class="logged-avathar-name">Santa Inc
+          <p class="version">V4.1.2</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sidebar-links">
+    <ul id="nav_accordion">
+      <li class="tooltip-element" *ngFor="let menu of menu_list; let i = index">
+        <a routerLink="/{{ menu.url }}" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="goTo(menu)">
+          <div class="icon"><i class="{{ menu.icon }}"></i></div>
+          <span class="link hide">{{ menu.menu_name }}</span>
+        </a>
+      </li>
+    </ul>
+    <div class="footer">All rights reserved</div>
+  </div>
+</nav>
