@@ -7,14 +7,14 @@
           <th>First Name</th>
           <th>Last Name</th>
           <th>Address</th>
-          <th>Email</th>
+          <th>Wishes</th>
         </tr>
         <tr *ngFor="let item of deliveryList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
           <!-- <td>{{item.id}}</td> -->
           <td>{{item['first_name']}}</td>
           <td>{{item['last_name']}}</td>
           <td>{{item['address']}}</td>
-          <td>{{item['email']}}</td>
+          <td>{{item['wishes']}}</td>
         </tr>
       </table>
       <ngb-pagination [pageSize] = "5" [collectionSize]="20" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
