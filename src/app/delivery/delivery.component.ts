@@ -14,8 +14,12 @@ export class DeliveryComponent implements OnInit {
   constructor(private deliveryService: DeliveryService) { }
 
   ngOnInit(): void {
-    this.deliveryService.getList().subscribe((data) => {
-      this.deliveryList = JSON.parse(data);
+    this.deliveryService.getList().subscribe((data: any) => {
+      if (data && data.length) {
+        this.deliveryList = JSON.parse(data);
+      } else {
+        this.deliveryList = [];
+      }
     });
   }
 

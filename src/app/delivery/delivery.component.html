@@ -9,13 +9,20 @@
           <th>Address</th>
           <th>Wishes</th>
         </tr>
-        <tr *ngFor="let item of deliveryList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
-          <!-- <td>{{item.id}}</td> -->
-          <td>{{item['first_name']}}</td>
-          <td>{{item['last_name']}}</td>
-          <td>{{item['address']}}</td>
-          <td>{{item['wishes']}}</td>
-        </tr>
+        <ng-container *ngIf="deliveryList.length">
+          <tr *ngFor="let item of deliveryList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+            <!-- <td>{{item.id}}</td> -->
+            <td>{{item['first_name']}}</td>
+            <td>{{item['last_name']}}</td>
+            <td>{{item['address']}}</td>
+            <td>{{item['wishes']}}</td>
+          </tr>
+        </ng-container>
+        <ng-container *ngIf="!deliveryList.length">
+          <tr>
+            <th colspan="4">No data available</th>
+          </tr>
+        </ng-container>
       </table>
       <ngb-pagination [pageSize] = "5" [collectionSize]="20" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
     </div>
